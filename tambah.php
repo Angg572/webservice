@@ -20,6 +20,11 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 $response = curl_exec($ch);
 echo "response ".$response;
 
+ // Mengencode data menjadi json
+$jsonfile = json_encode($data, JSON_PRETTY_PRINT);
+
+// Menyimpan data ke dalam anggota.json
+$anggota = file_put_contents($file, $jsonfile);
 curl_close($ch);
 }
 ?>
